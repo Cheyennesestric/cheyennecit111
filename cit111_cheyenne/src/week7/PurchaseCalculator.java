@@ -19,8 +19,8 @@ public class PurchaseCalculator {
         priceResponse = keyboardReader.nextDouble();
         System.out.println("Enter the percent discount and press enter"
                 + "(no %): ");
-        discountResponse = keyboardReader.nextDouble();
-        displayPriceWithTax(priceResponse);
+        double result = displayPriceWithTax(priceResponse);
+        System.out.println("Returned price with tax: " + );
         discountResponse = keyboardReader.nextDouble();
         System.out.println("Discount rate: " + discountResponse);
         computePriceAfterDiscount(100.00, 0.2);
@@ -28,13 +28,14 @@ public class PurchaseCalculator {
 
     }
 
-    public static void displayPriceWithTax(double price) {
+    public static double displayPriceWithTax(double price) {
         final double TAX_RATE = 0.075;
         double totalPrice = price * (1 + TAX_RATE);
         System.out.println("Total price with tax: $" + totalPrice);
+        return totalPrice;
     }
 
-    public static void computePriceAfterDiscount(double price, double discount) {
+    public static void computePriceAfterDiscount(double price, double discount){
 
         double finalPrice = price - (price * discount);
         System.out.println("Price after discount: $" + finalPrice);
